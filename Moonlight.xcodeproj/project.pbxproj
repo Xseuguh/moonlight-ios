@@ -11,6 +11,9 @@
 		77EA735B2F548CBA00F18E74 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EA735A2F548CBA00F18E74 /* WidgetKit.framework */; };
 		77EA735D2F548CBA00F18E74 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EA735C2F548CBA00F18E74 /* SwiftUI.framework */; };
 		77EA736A2F548CBB00F18E74 /* MoonlightQuickLaunchExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 77EA73592F548CBA00F18E74 /* MoonlightQuickLaunchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		77EA73822F548F3B00F18E74 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA737D2F548F3B00F18E74 /* WidgetSnapshot.swift */; };
+		77EA738F2F5493AA00F18E74 /* WidgetSnapshotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA738E2F5493AA00F18E74 /* WidgetSnapshotModels.swift */; };
+		77EA73A62F54A2FF00F18E74 /* WidgetSnapshotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA738E2F5493AA00F18E74 /* WidgetSnapshotModels.swift */; };
 		98181BE92791277400E43572 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98181BE82791275D00E43572 /* libSDL2.a */; };
 		98181BEB2791278F00E43572 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98181BEA2791278300E43572 /* libSDL2.a */; };
 		98181BED2791281100E43572 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98181BEC2791281100E43572 /* CoreMotion.framework */; };
@@ -201,6 +204,8 @@
 		77EA735C2F548CBA00F18E74 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
 		77EA737B2F548D5C00F18E74 /* MoonlightQuickLaunchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonlightQuickLaunchExtension.entitlements; sourceTree = "<group>"; };
 		77EA737C2F548D7700F18E74 /* Moonlight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moonlight.entitlements; sourceTree = SOURCE_ROOT; };
+		77EA737D2F548F3B00F18E74 /* WidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
+		77EA738E2F5493AA00F18E74 /* WidgetSnapshotModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshotModels.swift; sourceTree = "<group>"; };
 		9803CCAB254F9EAF00EE185E /* ConnectionCallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionCallbacks.h; sourceTree = "<group>"; };
 		98132E8C20BC9A62007A053F /* Moonlight v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Moonlight v1.1.xcdatamodel"; sourceTree = "<group>"; };
 		98181BE82791275D00E43572 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = libs/SDL2/lib/iOS/libSDL2.a; sourceTree = "<group>"; };
@@ -417,6 +422,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77EA73802F548F3B00F18E74 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				77EA737D2F548F3B00F18E74 /* WidgetSnapshot.swift */,
+				77EA738E2F5493AA00F18E74 /* WidgetSnapshotModels.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		9896219423D15C2900211983 /* X1Kit */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +516,7 @@
 		FB290CF919B2C406004C83CF /* Moonlight */ = {
 			isa = PBXGroup;
 			children = (
+				77EA73802F548F3B00F18E74 /* Widget */,
 				77EA737C2F548D7700F18E74 /* Moonlight.entitlements */,
 				D4746EEA1CBC740C006FB401 /* Moonlight-Bridging-Header.h */,
 				FB89460419F646E200339C8A /* Crypto */,
@@ -924,6 +939,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EA73A62F54A2FF00F18E74 /* WidgetSnapshotModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +1005,7 @@
 				9819CC14254F107A008A7C8E /* RelativeTouchHandler.m in Sources */,
 				FB1A674D2131E65900507771 /* KeyboardSupport.m in Sources */,
 				FB89463219F646E200339C8A /* VideoDecoderRenderer.m in Sources */,
+				77EA738F2F5493AA00F18E74 /* WidgetSnapshotModels.swift in Sources */,
 				FB290D0419B2C406004C83CF /* AppDelegate.m in Sources */,
 				FB9AFD401A7E127D00872C98 /* AppListResponse.m in Sources */,
 				FB89463419F646E200339C8A /* Utils.m in Sources */,
@@ -1031,6 +1048,7 @@
 				FBD349621A0089F6002D2A60 /* DataManager.m in Sources */,
 				FB4A23B81A9D3637004D2EF2 /* LoadingFrameViewController.m in Sources */,
 				FB9AFD3A1A7E05CE00872C98 /* ServerInfoResponse.m in Sources */,
+				77EA73822F548F3B00F18E74 /* WidgetSnapshot.swift in Sources */,
 				FB89463119F646E200339C8A /* StreamManager.m in Sources */,
 				988FCD41293B091B003050E2 /* KeyboardInputField.m in Sources */,
 			);
