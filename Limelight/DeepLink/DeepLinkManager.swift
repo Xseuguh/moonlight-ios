@@ -22,7 +22,7 @@ enum DeepLinkAction: CustomStringConvertible {
 
         case let .launch(hostUUID, appId):
             appDelegate.setValue(hostUUID, forKey: "pcUuidToLoad")
-            // TODO: add application to open
+            appDelegate.setValue(appId, forKey: "pendingAppIdToLoad")
         }
     }
 }

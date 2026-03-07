@@ -1092,6 +1092,48 @@ static NSMutableSet* hostList;
     }
 }
 
+- (void)handlePendingAppShortcutAction
+{
+    AppDelegate* delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+
+    if (delegate.pendingAppIdToLoad == nil || _selectedHost == nil || _sortedAppList == nil) {
+
+        return;
+    }
+
+    TemporaryApp *target = nil;
+    for (TemporaryApp *app in _sortedAppList) {
+        if ([app.id isEqualToString:delegate.pendingAppIdToLoad]) {
+            target = app;
+            break;
+        }
+    }
+    
+    delegate.pendingAppIdToLoad = nil;
+    
+    if (target == nil) {
+        Log(LOG_W, @"App id %@ not found in current list", delegate.pendingAppIdToLoad);
+           return;
+       }
+
+   TemporaryApp* currentApp = [self findRunningApp:target.host];
+
+   if (currentApp == nil) {
+       Log(LOG_I, @"Launching app %@ on host %@", target.name, target.host.name);
+       [self prepareToStreamApp:target];
+       [self performSegueWithIdentifier:@"createStreamFrame" sender:nil];
+   }
+   else if ([currentApp.id isEqualToString:target.id]) {
+       Log(LOG_I, @"Resuming app %@ on host %@", currentApp.name, currentApp.host.name);
+       [self prepareToStreamApp:currentApp];
+       [self performSegueWithIdentifier:@"createStreamFrame" sender:nil];
+   }
+   else {
+       [self quitRunningApp:currentApp andLaunchApp:target];
+   }
+}
+
 -(void)handleReturnToForeground
 {
     _background = NO;
@@ -1358,6 +1400,7 @@ static NSMutableSet* hostList;
     
     [hostScrollView removeFromSuperview];
     [self.collectionView reloadData];
+    [self handlePendingAppShortcutAction];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
