@@ -5,7 +5,6 @@ struct ContentView: View {
     let entry: WidgetTimelineProvider.Entry
 
     @Environment(\.widgetFamily) private var family
-    private let backgroundColor: Color = .gray
 
     var body: some View {
         Group {
@@ -36,12 +35,12 @@ struct ContentView: View {
                 case .systemMedium:
                     MediumWidget(
                         widgetApps: entry.widgetApps,
-                        backgroundColor: backgroundColor
+                        backgroundColor: entry.backgroundColor
                     )
                 case .systemLarge:
                     LargeWidget(
                         widgetApps: entry.widgetApps,
-                        backgroundColor: backgroundColor
+                        backgroundColor: entry.backgroundColor
                     )
                 default: EmptyView()
                 }

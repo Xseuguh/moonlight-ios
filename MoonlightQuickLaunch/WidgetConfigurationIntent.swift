@@ -25,4 +25,27 @@ struct ConfigurationIntent: WidgetConfigurationIntent {
             seen.insert(app.id).inserted
         }
     }
+
+    @Parameter(title: "Background color", default: .gray)
+    var backgroundColor: BackgroundColorOption
+
+    static var parameterSummary: some ParameterSummary {
+        Switch(.widgetFamily) {
+            Case(.systemSmall) {
+                Summary("Apps: \(\.$applications)")
+            }
+
+            Case(.systemMedium) {
+                Summary("Apps: \(\.$applications), background: \(\.$backgroundColor)")
+            }
+
+            Case(.systemLarge) {
+                Summary("Apps: \(\.$applications), background: \(\.$backgroundColor)")
+            }
+
+            DefaultCase {
+                Summary("Apps: \(\.$applications), background: \(\.$backgroundColor)")
+            }
+        }
+    }
 }

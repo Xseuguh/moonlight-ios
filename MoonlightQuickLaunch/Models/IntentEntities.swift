@@ -17,6 +17,46 @@ enum WidgetLayout: String, AppEnum {
         ]
 }
 
+enum BackgroundColorOption: String, AppEnum {
+    case red, green, orange, blue, yellow, black, gray, white, pink
+
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Background color"
+    static var caseDisplayRepresentations: [BackgroundColorOption: DisplayRepresentation] = [
+        .black: "Black",
+        .red: "Red",
+        .green: "Green",
+        .orange: "Orange",
+        .blue: "Blue",
+        .yellow: "Yellow",
+        .gray: "Gray",
+        .white: "White",
+        .pink: "Pink",
+    ]
+
+    var color: Color {
+        switch self {
+        case .black:
+            return .black
+        case .red:
+            return .red
+        case .green:
+            return .green
+        case .orange:
+            return .orange
+        case .blue:
+            return .blue
+        case .yellow:
+            return .yellow
+        case .gray:
+            return .gray
+        case .white:
+            return .white
+        case .pink:
+            return .pink
+        }
+    }
+}
+
 struct ApplicationEntity: AppEntity, Identifiable, Hashable {
     static var typeDisplayRepresentation: TypeDisplayRepresentation =
         "Application"

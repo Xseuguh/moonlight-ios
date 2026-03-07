@@ -1,8 +1,9 @@
+import SwiftUI
 import WidgetKit
 
 struct WidgetTimelineProvider: AppIntentTimelineProvider {
     func placeholder(in _: Context) -> WidgetEntry {
-        WidgetEntry(date: Date(), widgetApps: [])
+        WidgetEntry(date: Date(), widgetApps: [], backgroundColor: .gray)
     }
 
     func snapshot(
@@ -11,7 +12,8 @@ struct WidgetTimelineProvider: AppIntentTimelineProvider {
     ) async -> WidgetEntry {
         WidgetEntry(
             date: Date(),
-            widgetApps: resolveApplications(configuration: configuration)
+            widgetApps: resolveApplications(configuration: configuration),
+            backgroundColor: configuration.backgroundColor.color
         )
     }
 
@@ -21,7 +23,8 @@ struct WidgetTimelineProvider: AppIntentTimelineProvider {
     ) async -> Timeline<WidgetEntry> {
         let entry = WidgetEntry(
             date: Date(),
-            widgetApps: resolveApplications(configuration: configuration)
+            widgetApps: resolveApplications(configuration: configuration),
+            backgroundColor: configuration.backgroundColor.color
         )
         return Timeline(entries: [entry], policy: .never)
     }
