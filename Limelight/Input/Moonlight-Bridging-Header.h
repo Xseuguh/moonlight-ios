@@ -4,6 +4,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "AppDelegate.h"
 #import "TemporaryHost.h"
 #import "TemporaryApp.h"
 #import "AppAssetManager.h"
+#import "Logger.h"
