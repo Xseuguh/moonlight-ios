@@ -20,8 +20,10 @@ struct Grid: View {
 
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(widgetApps.prefix(maxNumberOfItems), id: \.id) { widgetApp in
-                    AppIcon(widgetApp: widgetApp)
-                        .frame(height: cellHeight)
+                    Link(destination: widgetApp.deeplinkURL!) {
+                        AppIcon(widgetApp: widgetApp)
+                            .frame(height: cellHeight)
+                    }
                 }
             }
         }

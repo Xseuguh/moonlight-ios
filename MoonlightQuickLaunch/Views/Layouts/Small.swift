@@ -13,6 +13,7 @@ struct SmallWidget: View {
                 AppIcon(widgetApp: widgetApp)
                     .scaledToFill()
             }
+            .widgetURL(widgetApp.deeplinkURL)
         }
     }
 }
