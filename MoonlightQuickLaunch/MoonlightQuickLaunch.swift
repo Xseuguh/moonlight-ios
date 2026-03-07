@@ -1,87 +1,16 @@
-//
-//  MoonlightQuickLaunch.swift
-//  MoonlightQuickLaunch
-//
-//  Created by Hugues Baratgin on 01/03/2026.
-//  Copyright © 2026 Moonlight Game Streaming Project. All rights reserved.
-//
-
-import WidgetKit
 import SwiftUI
-
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
-    }
-
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
-    }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
-    }
-
-//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
-}
-
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationAppIntent
-}
-
-struct MoonlightQuickLaunchEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text("Time:")
-        Text(entry.date, style: .time)
-
-        Text("Favorite Emoji:")
-        Text(entry.configuration.favoriteEmoji)
-    }
-}
+import WidgetKit
 
 struct MoonlightQuickLaunch: Widget {
     let kind: String = "MoonlightQuickLaunch"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            MoonlightQuickLaunchEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        AppIntentConfiguration(
+            kind: kind,
+            intent: ConfigurationIntent.self,
+            provider: WidgetTimelineProvider()
+        ) { entry in
+            ContentView(entry: entry)
         }
     }
-}
-
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
-
-#Preview(as: .systemSmall) {
-    MoonlightQuickLaunch()
-} timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
 }
