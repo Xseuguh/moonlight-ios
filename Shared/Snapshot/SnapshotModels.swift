@@ -1,10 +1,5 @@
 import Foundation
 
-enum WidgetShared {
-    static let appGroupId = "group.com.moonlight-stream.widget"
-    static let snapshotKey = "moonlight.widget.snapshot"
-}
-
 struct AppPayload: Codable {
     let id: String
     let name: String
