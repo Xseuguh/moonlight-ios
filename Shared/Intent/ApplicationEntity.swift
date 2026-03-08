@@ -1,7 +1,7 @@
 import AppIntents
 import UIKit
 
-@available(iOS 16.0, *)
+@available(iOS 16.0, tvOS 16.0, *)
 struct ApplicationEntity: AppEntity, Identifiable, Hashable {
     static var typeDisplayRepresentation: TypeDisplayRepresentation =
         "Application"
@@ -28,7 +28,7 @@ struct ApplicationEntity: AppEntity, Identifiable, Hashable {
     }
 }
 
-@available(iOS 16.0, *)
+@available(iOS 16.0, tvOS 16.0, *)
 struct ApplicationEntityQuery: EntityQuery {
     func suggestedEntities() async throws -> [ApplicationEntity] {
         try sortedApps()

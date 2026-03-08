@@ -16,6 +16,14 @@
 		771547C12F5D7CFF00A57DF5 /* ApplicationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547BA2F5D787600A57DF5 /* ApplicationEntity.swift */; };
 		771547CA2F5D7FB900A57DF5 /* SnapshotConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547C92F5D7FB600A57DF5 /* SnapshotConstants.swift */; };
 		771547CB2F5D7FB900A57DF5 /* SnapshotConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547C92F5D7FB600A57DF5 /* SnapshotConstants.swift */; };
+		771547CF2F5D826D00A57DF5 /* ShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547CD2F5D826D00A57DF5 /* ShortcutsProvider.swift */; };
+		771547D12F5D826D00A57DF5 /* ShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547CD2F5D826D00A57DF5 /* ShortcutsProvider.swift */; };
+		771547D22F5D826D00A57DF5 /* LaunchAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547CC2F5D826D00A57DF5 /* LaunchAppIntent.swift */; };
+		771547D32F5D828900A57DF5 /* LaunchAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547CC2F5D826D00A57DF5 /* LaunchAppIntent.swift */; };
+		7715481F2F5D86CE00A57DF5 /* ApplicationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547BA2F5D787600A57DF5 /* ApplicationEntity.swift */; };
+		771548202F5D86DD00A57DF5 /* SnapshotConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547C92F5D7FB600A57DF5 /* SnapshotConstants.swift */; };
+		771548212F5D86E200A57DF5 /* SnaspshotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771547BD2F5D7AF400A57DF5 /* SnaspshotStore.swift */; };
+		771548222F5D86E700A57DF5 /* SnapshotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA738E2F5493AA00F18E74 /* SnapshotModels.swift */; };
 		77EA735B2F548CBA00F18E74 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EA735A2F548CBA00F18E74 /* WidgetKit.framework */; };
 		77EA735D2F548CBA00F18E74 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EA735C2F548CBA00F18E74 /* SwiftUI.framework */; };
 		77EA736A2F548CBB00F18E74 /* MoonlightQuickLaunchExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 77EA73592F548CBA00F18E74 /* MoonlightQuickLaunchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -211,6 +219,8 @@
 		771547BA2F5D787600A57DF5 /* ApplicationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationEntity.swift; sourceTree = "<group>"; };
 		771547BD2F5D7AF400A57DF5 /* SnaspshotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnaspshotStore.swift; sourceTree = "<group>"; };
 		771547C92F5D7FB600A57DF5 /* SnapshotConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConstants.swift; sourceTree = "<group>"; };
+		771547CC2F5D826D00A57DF5 /* LaunchAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAppIntent.swift; sourceTree = "<group>"; };
+		771547CD2F5D826D00A57DF5 /* ShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsProvider.swift; sourceTree = "<group>"; };
 		77EA73592F548CBA00F18E74 /* MoonlightQuickLaunchExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoonlightQuickLaunchExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EA735A2F548CBA00F18E74 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
 		77EA735C2F548CBA00F18E74 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
@@ -469,6 +479,15 @@
 			path = Intent;
 			sourceTree = "<group>";
 		};
+		771547CE2F5D826D00A57DF5 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				771547CC2F5D826D00A57DF5 /* LaunchAppIntent.swift */,
+				771547CD2F5D826D00A57DF5 /* ShortcutsProvider.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
 		9896219423D15C2900211983 /* X1Kit */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +574,7 @@
 		FB290CF919B2C406004C83CF /* Moonlight */ = {
 			isa = PBXGroup;
 			children = (
+				771547CE2F5D826D00A57DF5 /* Shortcuts */,
 				771545C62F5C1C1600A57DF5 /* DeepLink */,
 				77EA737C2F548D7700F18E74 /* Moonlight.entitlements */,
 				D4746EEA1CBC740C006FB401 /* Moonlight-Bridging-Header.h */,
@@ -995,6 +1015,7 @@
 				9865DC3E21332D660005B9B9 /* MainFrameViewController.m in Sources */,
 				771545C82F5C1C2D00A57DF5 /* DeepLinkManager.swift in Sources */,
 				9865DC36213287F30005B9B9 /* AppDelegate.m in Sources */,
+				771548202F5D86DD00A57DF5 /* SnapshotConstants.swift in Sources */,
 				FB1A6819213284FB00507771 /* UIComputerView.m in Sources */,
 				FB1A681A213284FB00507771 /* UIAppView.m in Sources */,
 				FB1A681B213284FB00507771 /* ComputerScrollView.m in Sources */,
@@ -1005,6 +1026,8 @@
 				FB1A67E32132498A00507771 /* Limelight.xcdatamodeld in Sources */,
 				FB1A67DE2132460A00507771 /* Utils.m in Sources */,
 				FB1A67E02132460A00507771 /* Logger.m in Sources */,
+				771547D32F5D828900A57DF5 /* LaunchAppIntent.swift in Sources */,
+				771548222F5D86E700A57DF5 /* SnapshotModels.swift in Sources */,
 				FB1A67D52132460400507771 /* ControllerSupport.m in Sources */,
 				FB1A67D82132460400507771 /* StreamView.m in Sources */,
 				9896219A23D56E8100211983 /* X1Kit.swift in Sources */,
@@ -1014,8 +1037,10 @@
 				FB1A67CF213245F800507771 /* TemporaryApp.m in Sources */,
 				FB1A67D1213245F800507771 /* TemporaryHost.m in Sources */,
 				FB1A67D3213245F800507771 /* TemporarySettings.m in Sources */,
+				7715481F2F5D86CE00A57DF5 /* ApplicationEntity.swift in Sources */,
 				FB1A67C3213245EA00507771 /* AppAssetManager.m in Sources */,
 				FB1A67C5213245EA00507771 /* AppAssetRetriever.m in Sources */,
+				771547CF2F5D826D00A57DF5 /* ShortcutsProvider.swift in Sources */,
 				FB1A67C7213245EA00507771 /* PairManager.m in Sources */,
 				FB1A67C9213245EA00507771 /* WakeOnLanManager.m in Sources */,
 				FB1A67CB213245EA00507771 /* ConnectionHelper.m in Sources */,
@@ -1029,6 +1054,7 @@
 				FB1A67B9213245D500507771 /* AppAssetResponse.m in Sources */,
 				FB1A67BB213245D500507771 /* AppListResponse.m in Sources */,
 				9819CC1D254F1730008A7C8E /* RelativeTouchHandler.m in Sources */,
+				771548212F5D86E200A57DF5 /* SnaspshotStore.swift in Sources */,
 				FB1A67AB213245C500507771 /* CryptoManager.m in Sources */,
 				FB1A67AF213245C500507771 /* IdManager.m in Sources */,
 				988FCD42293B091B003050E2 /* KeyboardInputField.m in Sources */,
@@ -1094,6 +1120,8 @@
 				FB9AFD3D1A7E111600872C98 /* AppAssetResponse.m in Sources */,
 				771547BF2F5D7B0100A57DF5 /* SnaspshotStore.swift in Sources */,
 				FBD349621A0089F6002D2A60 /* DataManager.m in Sources */,
+				771547D12F5D826D00A57DF5 /* ShortcutsProvider.swift in Sources */,
+				771547D22F5D826D00A57DF5 /* LaunchAppIntent.swift in Sources */,
 				FB4A23B81A9D3637004D2EF2 /* LoadingFrameViewController.m in Sources */,
 				FB9AFD3A1A7E05CE00872C98 /* ServerInfoResponse.m in Sources */,
 				77EA73822F548F3B00F18E74 /* SnapshotExporter.swift in Sources */,
